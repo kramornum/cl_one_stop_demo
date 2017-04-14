@@ -8,7 +8,7 @@
 
 - name: Add source /etc/network/interfaces.d/*
   lineinfile: dest=/etc/network/interfaces state=present line='source /etc/network/interfaces.d/*' insertbefore=BOF
-  sudo: yes
+  become: yes
 
 - name: configure loopback interface
   cl_interface:

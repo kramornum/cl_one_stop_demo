@@ -3,12 +3,12 @@
   with_items:
     - "vxrd-src-ip {{ ansible_lo.ipv4_secondaries.0.address }}"
     - "vxrd-svcnode-ip {{ vxlan.vxsnd.anycast }}"
-  sudo: yes
+  become: yes
 
 - name: update loopback interfaces with active/active vtp
   lineinfile: dest=/etc/network/interfaces.d/lo line="clagd-vxlan-anycast-ip {{ vxlan.vxrd.aa_vtep[ansible_hostname] }}"
   when: vxlan.vxrd.aa_vtep[ansible_hostname] is defined
-  sudo: yes
+  become: yes
 
 - name: Add loopback interface so those routes get announced
   command: "{{ item }}"
@@ -42,10 +42,10 @@
 
 - name: turn on LNV registration node daemon
   template: src=daemon.j2 dest=/etc/default/vxrd
-  sudo: yes
+  become: yes
   notify: restart vxrd 
 
 - name: stop clagd to workaround the anycast issue
   service: name=clagd state=stopped
-  sudo: yes
+  become: yes
 

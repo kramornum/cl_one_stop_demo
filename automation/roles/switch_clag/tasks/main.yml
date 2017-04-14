@@ -63,12 +63,12 @@
 
 - name: Add source /etc/network/interfaces.d/*
   lineinfile: dest=/etc/network/interfaces state=present line='source /etc/network/interfaces.d/*' insertbefore=BOF
-  sudo: yes
+  become: yes
 
 - name: Restart networking
   service: name=networking state=restarted
-  sudo: yes
+  become: yes
 
 - name: Restart clagd
   service: name=clagd state=restarted
-  sudo: yes
+  become: yes

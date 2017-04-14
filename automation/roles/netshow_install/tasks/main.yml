@@ -1,14 +1,14 @@
 - name: Ensure LLDPD is installed
   apt: name=lldpd state=present
-  sudo: yes
+  become: yes
 
 - name: Installing Netshow from the Cumulus Repro 
   apt: name=netshow state=present
-  sudo: yes
+  become: yes
   when: ansible_lsb.id == "Cumulus Networks"
 
 - name: Install Netshow from Python PIP
   apt: name=python-pip state=present
-  sudo: yes
+  become: yes
   when: ansible_lsb.id == "Ubuntu"
 

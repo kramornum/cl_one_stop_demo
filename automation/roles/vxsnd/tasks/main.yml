@@ -1,6 +1,6 @@
 - name: update loopback interfaces with vxsnd anycast address
   lineinfile: dest=/etc/network/interfaces.d/lo line="address {{ vxlan.vxsnd.anycast }}/32"
-  sudo: yes
+  become: yes
   
 - name: Add loopback interface so those routes get announced
   command: "{{ item }}"
@@ -31,12 +31,12 @@
 
 - name: configure LNV service node daemon
   template: src=daemon.j2 dest=/etc/default/vxsnd
-  sudo: yes
+  become: yes
   
 - name: configure LNV service node configuration
   template: src=vxsnd.j2 dest=/etc/vxsnd.conf
   notify: restart vxsnd  
-  sudo: yes
+  become: yes
 
 - name: ifup the loopback address
   command: "sudo ifup lo"
