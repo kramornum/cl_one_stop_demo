@@ -23,7 +23,7 @@
     name: '{{ item }}'
     ipv4: '{{ loopback }}/32'
   notify: reload networking
-  with_items: unnumbered
+  with_items: "{{ unnumbered }}"
   when: unnumbered is defined
 
 - name: configure vlan 10 svi and vrr
@@ -32,7 +32,7 @@
     virtual_ip: "{{ addresses[ansible_hostname].vip }}"
     virtual_mac: "{{ addresses[ansible_hostname].vmac }}"
     ipv4: "{{ item }}"
-  with_items: svi
+  with_items: "{{ svi }}"
   when: svi is defined
 
 - name: ifreload -a

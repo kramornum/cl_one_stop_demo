@@ -29,14 +29,14 @@
     stp: true
     vids: "1-100"
     pvid: "1"
-  with_items: bridges
+  with_items: "{{ bridges }}"
   when: bridges is defined
 
 - name: configure peerlink
   cl_bond:
     name: "{{ item.name }}"
     slaves: "{{ item.members }}"
-  with_items: peerlink
+  with_items: "{{ peerlink }}"
   when: peerlink is defined
 
 - name: configure clag keepalive

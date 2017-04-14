@@ -33,7 +33,7 @@
     name: "{{ item.name }}"
     slaves: "{{ item.members }}"
     clag_id: "{{ item.clag_id }}"
-  with_items: bond1
+  with_items: "{{ bond1 }}"
   when: bond1 is defined
 
 - name: configure bond2
@@ -41,7 +41,7 @@
     name: "{{ item.name }}"
     slaves: "{{ item.members }}"
     clag_id: "{{ item.clag_id }}"
-  with_items: bond2
+  with_items: "{{ bond2 }}"
   when: bond2 is defined
 
 - name: configure bond3
@@ -49,7 +49,7 @@
     name: "{{ item.name }}"
     slaves: "{{ item.members }}"
     clag_id: "{{ item.clag_id }}"
-  with_items: bond3
+  with_items: "{{ bond3 }}"
   when: bond3 is defined
 
 - name: configure vlan 10 vrr
@@ -58,7 +58,7 @@
     virtual_ip: "{{ vrr[ansible_hostname].vip }}"
     virtual_mac: "{{ vrr[ansible_hostname].vmac }}"
     ipv4: "{{ item }}"
-  with_items: svi
+  with_items: "{{ svi }}"
   when: vrr[ansible_hostname] is defined
 
 - name: Add source /etc/network/interfaces.d/*
