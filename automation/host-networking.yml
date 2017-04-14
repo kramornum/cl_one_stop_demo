@@ -1,6 +1,6 @@
 - hosts: servers
   user: vagrant
-  sudo: yes
+  become: yes
   roles:
     - anycast_host
   vars_files:

@@ -1,6 +1,6 @@
 - hosts: spine
   user: vagrant
-  sudo: yes
+  become: yes
   tasks:
     - name: clean up spines for from CLAG to unnumbered
       file: path=/etc/network/interfaces.d/{{ item }} state=absent
@@ -17,7 +17,7 @@
 
 - hosts: leaf
   user: vagrant
-  sudo: yes
+  become: yes
   tasks:
     - name: clean up leaf switches for from CLAG to unnumbered
       file: path=/etc/network/interfaces.d/{{ item }} state=absent

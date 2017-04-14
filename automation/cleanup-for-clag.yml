@@ -1,6 +1,6 @@
 - hosts: networking
   user: vagrant
-  sudo: yes
+  become: yes
   tasks:
     - name: clean up spines for from CLAG to unnumbered
       file: path=/etc/network/interfaces.d/{{ item }} state=absent

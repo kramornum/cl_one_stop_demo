@@ -1,7 +1,7 @@
 ---
 - hosts: leaf
   user: vagrant
-  sudo: yes
+  become: yes
   roles:
     - vxrd
     - vxlan-vni
@@ -12,7 +12,7 @@
 
 - hosts: spine
   user: vagrant
-  sudo: yes
+  become: yes
   roles:
     - vxsnd
   vars_files:

@@ -3,7 +3,7 @@
 
 
 #### Prerequisites
-The following tools are required to run this demo. Details about how each of the tools are being used can be found [here](https://github.com/slaffer-au/vx_vagrant_one_stop_demo/blob/master/README.md#details-about-tools-used).
+The following tools are required to run this demo. Details about how each of the tools are being used can be found [here](https://github.com/kramornum/cl_one_stop_demo/blob/master/README.md#details-about-tools-used).
   * Download the Cumulus VX version 2.5.5 file for Vagrant Box.
    * https://cumulusnetworks.com/cumulus-vx/download/
   * VirtualBox must be installed.
@@ -26,7 +26,7 @@ The following tools are required to run this demo. Details about how each of the
 Some topologies only require 8 switches, such as the Two-Tier-CLAG. Other topologies can make use of a third spine, however this is usually an extended automation task.
 
 *8 Switch Topology:*
-![Topology](https://github.com/slaffer-au/vx_vagrant_one_stop_demo/blob/master/Topology/raw-topology.png)
+![Topology](https://github.com/kramornum/cl_one_stop_demo/blob/master/Topology/raw-topology.png)
 
 
 #### Setup Instructions
@@ -36,12 +36,12 @@ Some topologies only require 8 switches, such as the Two-Tier-CLAG. Other topolo
     ``` vagrant box add CumulusVX-2.5.5-cc665123486ac43d.box --name cumulus-vx-2.5.5 ```
   3. Add the Ubuntu Trusty64 Vagrant box file. This add command downloads the box from the public Vagrant Box catalogue.
    * ``` vagrant box add ubuntu/trusty64 ```
-  4. If you use git, clone this repo with the command ```git clone https://github.com/slaffer-au/vx_vagrant_one_stop_demo.git```. Otherwise, download the archive [here](https://github.com/slaffer-au/vx_vagrant_one_stop_demo/archive/master.zip).
+  4. If you use git, clone this repo with the command ```git clone https://github.com/kramornum/cl_one_stop_demo.git```. Otherwise, download the archive [here](https://github.com/kramornum/cl_one_stop_demo/archive/master.zip).
   5. Enter the command "vagrant up" in the directory where the files were placed. This will create and provision the Cumulus VX instances.
   6. Once completed, connect to the CLI of the VX instances with "vagrant ssh ```hostname```"
 
 #### Ansible Automation
-All automation instuctions and examples are available in the [automation](https://github.com/slaffer-au/vx_vagrant_one_stop_demo/tree/master/automation) directory. Change to this directory to begin deploying the topologies.
+All automation instuctions and examples are available in the [automation](https://github.com/kramornum/cl_one_stop_demo/tree/master/automation) directory. Change to this directory to begin deploying the topologies.
 
 ---
 

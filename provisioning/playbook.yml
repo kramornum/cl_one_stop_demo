@@ -1,7 +1,7 @@
 ---
 - hosts: all
   user: vagrant
-  sudo: yes
+  become: yes
   tasks:
     - name: configure /etc/motd
       template: src=motd.j2 dest=/etc/motd
