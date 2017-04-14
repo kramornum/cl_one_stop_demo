@@ -22,7 +22,7 @@
     stp: true
     vids: "1-10"
     pvid: "1"
-  with_items: bridges
+  with_items: "{{ bridges }}"
   when: bridges is defined
 
 - name: configure peerlink
