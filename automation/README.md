@@ -1,12 +1,5 @@
 ## Automated Topology Deployments Using Ansible
 
-#### Notes on the Automation:
-Vagrant creates a NAT network with eth0 of all Cumulus VX and Ubuntu boxes, forwarding a localhost TCP port to port 22 of the guest for SSH access. This is how the wrapper ```vagrant ssh <vm>``` works.
-
-While this works well for purely local SSH access, it inherently makes it hard to connect and develop with these devices as if they were actual remote network nodes. If you do want the ```ssh vagrant@vm``` style access expected of real hosts, consider using the Vagrant-to-Local script available at the following link. This is **not** required for this demo.
-
-* https://github.com/slaffer-au/vagrant-to-local
-
 ##### Setting Up for Automation
 1. Change to the automation directory
 2. Ensure all hosts are accessible by Ansible with the ad-hoc command ```ansible all -m ping -u vagrant```.
@@ -16,7 +9,7 @@ While this works well for purely local SSH access, it inherently makes it hard t
 
 
 #### Two-Tier CLAG:
-![Topology](https://github.com/slaffer-au/vx_vagrant_one_stop_demo/blob/master/Topology/two-tier-clag-topology.png)
+![Topology](https://github.com/kramornum/cl_one_stop_demo/blob/master/Topology/two-tier-clag-topology.png)
 
 ##### Description:
 A common deployment seen in data centers involves Multi-Chassis Link Aggregation, or MLAG, where two switches with independant control-planes emulate a single logical device to directly connected devices, allowing a more complete use of bandwidth and available redundancy.
@@ -41,7 +34,7 @@ This topology demonstrates a deployment of Cumulus Link Aggregation (CLAG) and C
 ---  
 
 #### OSPF Unnumbered:
-![Topology](https://github.com/slaffer-au/vx_vagrant_one_stop_demo/blob/master/Topology/ospf-unnum-topology-9s.png)
+![Topology](https://github.com/kramornum/cl_one_stop_demo/blob/master/Topology/ospf-unnum-topology-9s.png)
 
 ##### Description:
 Cumulus Linux supports provisioning systems in an "unnumbered" fashion as a way to limit address space consumption. More precisely, this method is one where you can reuse the IP address assigned to the loopback on your point-to-point links to neighboring nodes.
@@ -70,9 +63,9 @@ This topology demonstrates a deployment of OSPF Unnumbered using Quagga, Cumulus
 
 #### BGP Unnumbered:
 *eBGP Topology:*
-![Topology](https://github.com/slaffer-au/vx_vagrant_one_stop_demo/blob/master/Topology/ebgp-unnum-topology-9s.png)
+![Topology](https://github.com/kramornum/cl_one_stop_demo/blob/master/Topology/ebgp-unnum-topology-9s.png)
 *iBGP Topology:*
-![Topology](https://github.com/slaffer-au/vx_vagrant_one_stop_demo/blob/master/Topology/ibgp-unnum-topology-9s.png)
+![Topology](https://github.com/kramornum/cl_one_stop_demo/blob/master/Topology/ibgp-unnum-topology-9s.png)
 
 ##### Description:
 Like the OSPF example above, BGP unnumbered is also supported in the Cumulus Linux distribution of the Quagga routing suite.
@@ -101,7 +94,7 @@ This topology demonstrates a deployment of both eBGP and iBGP Unnumbered using Q
 
 #### VxLAN with LNV:
 *VxLAN Topology:*
-![Topology](https://github.com/slaffer-au/vx_vagrant_one_stop_demo/blob/master/Topology/vxlan-topology-9s.png)
+![Topology](https://github.com/kramornum/cl_one_stop_demo/blob/master/Topology/vxlan-topology-9s.png)
 
 ##### Description:
 _This topology is designed to be deployed after the OSPF or BGP examples above as it relies on a routed IP fabric._
