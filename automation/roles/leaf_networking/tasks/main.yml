@@ -14,14 +14,23 @@
     svi: "{{ addresses[ansible_hostname].svi }}"
   when: addresses[ansible_hostname].svi is defined
 
+#- name: configure bridges
+#  cl_bridge:
+#    name: "{{ item.name }}"
+#    vlan_aware: yes
+#    ports: "{{ item.members }}"
+#    stp: true
+#    vids: "1-10"
+#    pvid: "1"
+#  with_items: "{{ bridges }}"
+#  when: bridges is defined
+
 - name: configure bridges
-  cl_bridge:
-    name: "{{ item.name }}"
-    vlan_aware: yes
-    ports: "{{ item.members }}"
-    stp: true
-    vids: "1-10"
-    pvid: "1"
+  nclu:
+    command:
+       - add bridge bridge ports "{{ item.members }}"
+       - add bridge bridge vids 1-10
+    commit: true
   with_items: "{{ bridges }}"
   when: bridges is defined
 
