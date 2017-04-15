@@ -43,7 +43,7 @@ interfaces:
   leaf1:
     bridges:
       - name: "br0"
-        members: ["peerlink", "host_clag"]
+        members: ["peerlink", "bond1", "host_clag"]
     peerlink:
       - name: "peerlink"
         members: ["swp3", "swp4"]
@@ -59,7 +59,7 @@ interfaces:
   leaf2:
     bridges:
       - name: "br0"
-        members: ["peerlink", "host_clag"]
+        members: ["peerlink", "bond1", "host_clag"]
     peerlink:
       - name: "peerlink"
         members: ["swp3", "swp4"]
@@ -75,7 +75,7 @@ interfaces:
   leaf3:
     bridges:
       - name: "br0"
-        members: ["peerlink", "host_clag"]
+        members: ["peerlink", "bond1", "host_clag"]
     peerlink:
       - name: "peerlink"
         members: ["swp3", "swp4"]
@@ -91,7 +91,7 @@ interfaces:
   leaf4:
     bridges:
       - name: "br0"
-        members: ["peerlink", "host_clag"]
+        members: ["peerlink", "bond1", "host_clag"]
     peerlink:
       - name: "peerlink"
         members: ["swp3", "swp4"]
@@ -107,7 +107,7 @@ interfaces:
   leaf5:
     bridges:
       - name: "br0"
-        members: ["peerlink", "host_clag"]
+        members: ["peerlink", "bond1", "host_clag"]
     peerlink:
       - name: "peerlink"
         members: ["swp3", "swp4"]
@@ -123,7 +123,7 @@ interfaces:
   leaf6:
     bridges:
       - name: "br0"
-        members: ["peerlink", "host_clag"]
+        members: ["peerlink", "bond1", "host_clag"]
     peerlink:
       - name: "peerlink"
         members: ["swp3", "swp4"]
