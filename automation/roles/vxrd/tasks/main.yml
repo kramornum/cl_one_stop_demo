@@ -38,7 +38,8 @@
   when:  vxlan.vxsnd.routing_protocol.ibgp
 
 - name: Save configuration to file
-  command: sudo cl-rctl write-config
+  command: cl-rctl write-config
+  become: yes
 
 - name: turn on LNV registration node daemon
   template: src=daemon.j2 dest=/etc/default/vxrd
