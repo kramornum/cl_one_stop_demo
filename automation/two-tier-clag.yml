@@ -3,7 +3,7 @@
 
 - include: leaf-setup.yml
   vars:
-    v_file: "group_vars/all/main.yml"
+    v_file: "group_vars/all/clag.yml"
 
 - include: host-networking.yml
   vars:
