@@ -43,10 +43,10 @@ interfaces:
   leaf1:
     bridges:
       - name: "bridge"
-        members: ["peerlink", "bond1", "host_clag"]
+        members: "peerlink,bond1,host_clag"
     peerlink:
       - name: "peerlink"
-        members: ["swp3", "swp4"]
+        members: "swp3,swp4"
         clag_ip: "169.254.254.1"
     bond1:
       - name: "bond1"
@@ -54,7 +54,7 @@ interfaces:
         clag_id: "1"
     host_clag:
       - name: "host_clag"
-        members: ["swp5"]
+        members: "swp5"
         clag_id: "5"
   leaf2:
     bridges:
@@ -71,7 +71,7 @@ interfaces:
     host_clag:
       - name: "host_clag"
         members: ["swp5"]
-        clag_id: "5"
+        clag_id: 5
   leaf3:
     bridges:
       - name: "bridge"

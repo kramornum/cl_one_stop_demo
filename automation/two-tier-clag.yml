@@ -7,7 +7,7 @@
 
 - include: host-networking.yml
   vars:
-    v_file: "group_vars/all/main.yml"
+    v_file: "group_vars/all/clag.yml"
 
 - hosts: networking
   user: vagrant
@@ -15,6 +15,6 @@
   roles:
     - switch_clag
   vars_files:
-    - group_vars/all/main.yml
+    - group_vars/all/clag.yml
   handlers:
     - include : handlers/main.yml

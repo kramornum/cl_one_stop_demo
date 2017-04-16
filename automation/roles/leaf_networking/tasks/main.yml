@@ -25,45 +25,73 @@
 #  with_items: "{{ bridges }}"
 #  when: bridges is defined
 
-- name: configure bridges
-  nclu:
-    command:
-       - add bridge bridge ports "{{ item.members }}"
-       - add bridge bridge vids 1-10
-    commit: true
-  with_items: "{{ bridges }}"
-  when: bridges is defined
-
 - name: configure peerlink
-  cl_bond:
-    name: "{{ item.name }}"
-    slaves: "{{ item.members }}"
+  nclu:
+    commands:
+      - add bond "{{ item.name }}" bond slaves "{{ item.members }}"
   with_items: "{{ peerlink }}"
   when: peerlink is defined
 
+#- name: configure peerlink
+#  cl_bond:
+#    name: "{{ item.name }}"
+#    slaves: "{{ item.members }}"
+#  with_items: "{{ peerlink }}"
+#  when: peerlink is defined
+
 - name: configure host_clag
-  cl_bond:
-    name: "{{ item.name }}"
-    slaves: "{{ item.members }}"
-    clag_id: "{{ item.clag_id }}"
+  nclu:
+    commands:
+      - add bond "{{ item.name }}" bond slaves "{{ item.members }}"
+      - add bond "{{ item.name }}" clag id "{{ item.clag_id }}"
   with_items: "{{ host_clag }}"
   when: host_clag is defined
 
+#- name: configure host_clag
+#  cl_bond:
+#   name: "{{ item.name }}"
+#   slaves: "{{ item.members }}"
+#   clag_id: "{{ item.clag_id }}"
+# with_items: "{{ host_clag }}"
+# when: host_clag is defined
+
+- name: configure bridges
+  nclu:
+    commands:
+       - add bridge bridge ports "{{ item.members }}"
+       - add bridge bridge vids 1-10
+  with_items: "{{ bridges }}"
+  when: bridges is defined
+
 - name: configure vlan 10 svi
-  cl_interface:
-    name: "br0.10"
-    ipv4: "{{ item }}"
+  nclu:
+    commands: add interface bridge.10 ip address "{{ item }}" 
+    atomic: true
   with_items: "{{ svi }}"
 
+#- name: configure vlan 10 svi
+#  cl_interface:
+#    name: "bridge.10"
+#    ipv4: "{{ item }}"
+#  with_items: "{{ svi }}"
+
+#- name: configure clag keepalive
+#  cl_interface:
+#    name: "peerlink.4094"
+#    ipv4: "{{ addresses[ansible_hostname].clag_ip }}"
+#    clagd_enable: yes
+#    clagd_priority: "1000"
+#    clagd_sys_mac: "{{ addresses[ansible_hostname].clag_mac }}"
+#    clagd_peer_ip: "{{ addresses[ansible_hostname].clag_peer }}"
+#    clagd_args: " --vm"
+
 - name: configure clag keepalive
-  cl_interface:
-    name: "peerlink.4094"
-    ipv4: "{{ addresses[ansible_hostname].clag_ip }}"
-    clagd_enable: yes
-    clagd_priority: "1000"
-    clagd_sys_mac: "{{ addresses[ansible_hostname].clag_mac }}"
-    clagd_peer_ip: "{{ addresses[ansible_hostname].clag_peer }}"
-    clagd_args: " --vm"
+  nclu:
+    commands:
+      - add interface peerlink.4094 ip address "{{ addresses[ansible_hostname].clag_ip }}"
+      - add interface peerlink.4094 clag peer-ip "{{ addresses[ansible_hostname].clag_peer }}"
+      - add interface peerlink.4094 clag sys-mac "{{ addresses[ansible_hostname].clag_mac }}"
+    atomic: true
 
 
 - name: Add source /etc/network/interfaces.d/*
