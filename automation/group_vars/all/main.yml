@@ -2,7 +2,7 @@
 interfaces:
   spine1:
     bridges:
-      - name: "br0"
+      - name: "bridge"
         members: ["peerlink", "bond1", "bond2", "bond3"]
     peerlink:
       - name: "peerlink"
@@ -22,7 +22,7 @@ interfaces:
         clag_id: "3"
   spine2:
     bridges:
-      - name: "br0"
+      - name: "bridge"
         members: ["peerlink", "bond1", "bond2", "bond3"]
     peerlink:
       - name: "peerlink"
@@ -42,8 +42,8 @@ interfaces:
         clag_id: "3"
   leaf1:
     bridges:
-      - name: "br0"
-        members: ["peerlink", "host_clag"]
+      - name: "bridge"
+        members: ["peerlink", "bond1", "host_clag"]
     peerlink:
       - name: "peerlink"
         members: ["swp3", "swp4"]
@@ -58,8 +58,8 @@ interfaces:
         clag_id: "5"
   leaf2:
     bridges:
-      - name: "br0"
-        members: ["peerlink", "host_clag"]
+      - name: "bridge"
+        members: ["peerlink", "bond1", "host_clag"]
     peerlink:
       - name: "peerlink"
         members: ["swp3", "swp4"]
@@ -74,8 +74,8 @@ interfaces:
         clag_id: "5"
   leaf3:
     bridges:
-      - name: "br0"
-        members: ["peerlink", "host_clag"]
+      - name: "bridge"
+        members: ["peerlink", "bond1", "host_clag"]
     peerlink:
       - name: "peerlink"
         members: ["swp3", "swp4"]
@@ -90,8 +90,8 @@ interfaces:
         clag_id: "5"
   leaf4:
     bridges:
-      - name: "br0"
-        members: ["peerlink", "host_clag"]
+      - name: "bridge"
+        members: ["peerlink", "bond1", "host_clag"]
     peerlink:
       - name: "peerlink"
         members: ["swp3", "swp4"]
@@ -106,8 +106,8 @@ interfaces:
         clag_id: "5"
   leaf5:
     bridges:
-      - name: "br0"
-        members: ["peerlink", "host_clag"]
+      - name: "bridge"
+        members: ["peerlink", "bond1", "host_clag"]
     peerlink:
       - name: "peerlink"
         members: ["swp3", "swp4"]
@@ -122,8 +122,8 @@ interfaces:
         clag_id: "5"
   leaf6:
     bridges:
-      - name: "br0"
-        members: ["peerlink", "host_clag"]
+      - name: "bridge"
+        members: ["peerlink", "bond1", "host_clag"]
     peerlink:
       - name: "peerlink"
         members: ["swp3", "swp4"]

@@ -42,7 +42,7 @@
 
 - name: configure vlan 10 svi
   cl_interface:
-    name: "br0.10"
+    name: "bridge.10"
     ipv4: "{{ item }}"
   with_items: "{{ svi }}"
 
