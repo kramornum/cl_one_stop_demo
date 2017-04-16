@@ -7,22 +7,22 @@ ospf:
     int_unnumbered: ["swp1", "swp2", "swp3", "swp4", "swp5", "swp6"]
   leaf1:
     int_unnumbered: ["swp1", "swp2", "swp6"]
-    local_net: [ "br0.10"]
+    local_net: [ "bridge.10"]
   leaf2:
     int_unnumbered: ["swp1", "swp2", "swp6"]
-    local_net: [ "br0.10"]
+    local_net: [ "bridge.10"]
   leaf3:
     int_unnumbered: ["swp1", "swp2", "swp6"]
-    local_net: [ "br0.10"]
+    local_net: [ "bridge.10"]
   leaf4:
     int_unnumbered: ["swp1", "swp2", "swp6"]
-    local_net: [ "br0.10"]
+    local_net: [ "bridge.10"]
   leaf5:
     int_unnumbered: ["swp1", "swp2", "swp6"]
-    local_net: [ "br0.10"]
+    local_net: [ "bridge.10"]
   leaf6:
     int_unnumbered: ["swp1", "swp2", "swp6"]
-    local_net: [ "br0.10"]
+    local_net: [ "bridge.10"]
 
 
 addresses:

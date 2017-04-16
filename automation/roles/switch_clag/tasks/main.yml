@@ -54,7 +54,7 @@
 
 - name: configure vlan 10 vrr
   cl_interface:
-    name: "br0.10"
+    name: "bridge.10"
     virtual_ip: "{{ vrr[ansible_hostname].vip }}"
     virtual_mac: "{{ vrr[ansible_hostname].vmac }}"
     ipv4: "{{ item }}"
